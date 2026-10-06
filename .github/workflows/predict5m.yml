@@ -1,0 +1,44 @@
+name: predict-5m-loop
+
+on:
+  schedule:
+    - cron: "*/5 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: predict-5m-loop
+  cancel-in-progress: false
+
+jobs:
+  cycle:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Scan 5m Bitcoin Markets & Edge
+        run: node predictor.js scan
+
+      - name: Resolve Matured Contracts
+        if: always()
+        run: node predictor.js resolve
+
+      - name: Report Performance
+        if: always()
+        run: node predictor.js report
+
+      - name: Commit positions.json
+        if: always()
+        run: |
+          git config user.name "predict-5m-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add positions.json
+          git diff --cached --quiet && echo "no changes" || git commit -m "state: 5m positions update [skip ci]"
+          git pull --rebase origin main || true
+          git push || true

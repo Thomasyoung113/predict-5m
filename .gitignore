@@ -1,0 +1,4 @@
+node_modules/
+*.log
+predict5m.log
+.DS_Store

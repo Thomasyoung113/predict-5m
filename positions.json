@@ -1,0 +1,22 @@
+[
+  {
+    "id": "btc-updown-5m-1791326100_UP",
+    "slug": "btc-updown-5m-1791326100",
+    "event": "btc-updown-5m-1791326100",
+    "title": "Bitcoin Up or Down - October 6, 6:35PM-6:40PM ET",
+    "coin": "bitcoin",
+    "timeframe": "5m",
+    "side": "UP",
+    "token_id": "15950995331709724361715508998114226193099421950164742087866210663444073033348",
+    "entry_price": 0.32,
+    "spot_at_entry": 85522,
+    "momentum_at_entry": 29,
+    "stake": 10,
+    "shares": 31.25,
+    "created_at": 1791326252,
+    "end": 1791326400,
+    "resolved": false,
+    "won": null,
+    "pnl": null
+  }
+]

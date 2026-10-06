@@ -1,0 +1,12 @@
+{
+  "name": "predict-5m",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "5-Minute Bitcoin Up/Down Event Predictor & Paper Trading Testbed",
+  "scripts": {
+    "scan": "node predictor.js scan",
+    "resolve": "node predictor.js resolve",
+    "report": "node predictor.js report",
+    "watch": "node predictor.js watch"
+  }
+}
